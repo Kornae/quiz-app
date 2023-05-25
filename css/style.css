@@ -1,0 +1,180 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    color: rgb(33, 33, 33);
+    font-weight: 300;
+}
+
+/* Link Tag Classes */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Display Visibility of Cards */
+.disappear {
+    display: none;
+}
+
+/* Spacing/Padding of Main Page */
+.container-fluid {
+    padding: 3% 15% 6%;
+}
+
+/* Search Bar & Span Element */
+.form {
+    position: relative;
+}
+
+.form span {
+    position: absolute;
+    left: 17px;
+    top: 13px;
+    padding: 2px;
+    padding-right: 10px;
+    border-right: 1px solid #d1d5db;
+}
+
+.form-input {
+    height: 55px;
+    text-indent: 50px;
+    border-radius: 30px;
+    background-color: #ffffffef;
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.left-pan i {
+    padding-left: 10px;
+}
+
+/* Main Backgrounds */
+#main-background {
+    color: white;
+    background-repeat: no-repeat;
+    /* background: url('svg/gold.svg'); */
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    opacity: 0.92;
+}
+
+#titleh1 {
+    font-weight: 200;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Nav Bar Icon */
+.navbar {
+    padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+}
+
+/* Quiz Card */
+.quiz-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.quiz-card {
+    background: #ffffff;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 315px;
+    max-height: 700px;
+    margin: 2em;
+    border-radius: 10px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-card-header {
+    padding: 0;
+    margin: 0;
+    height: 367px;
+    width: 100%;
+    display: grid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.quiz-card:hover {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.quiz-card-content {
+    padding: 18px 18px 24px 18px;
+    margin: 0;
+}
+
+.quiz-info {
+    display: table;
+    width: 100%;
+}
+
+.quiz-info-section {
+    display: table-cell;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.quiz-info-section:first-of-type {
+    text-align: left;
+}
+
+.quiz-info-section:last-of-type {
+    text-align: right;
+}
+
+.quiz-info-section label {
+    display: block;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+    font-size: 9px;
+}
+
+.quiz-info-section span {
+    font-weight: 500;
+    font-size: 10px;
+}
+
+.card-center {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.topic-tag {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.download-button {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#subtitle {
+    font-size: 1.05rem;
+    text-align: center;
+}
+

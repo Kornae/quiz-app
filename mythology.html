@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Qz+</title>
+    <!-- BootStrap/Javascript Links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@300;400;700&family=Sacramento&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans&family=Montserrat:ital,wght@0,100;0,200;0,300;0,700;1,100&family=Sacramento&family=Ubuntu&display=swap" rel="stylesheet">
+
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/9370e93401.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- My CSS Style Sheet -->
+    <link rel="stylesheet" href="css/game.css" />
+
+    <link rel="stylesheet" href="css/loader-1.css">
+
+       <link rel="icon" type="image/ico" href="images/trivia.png">
+  </head>
+
+  <body>
+
+<div style=" background-color: #222;" id="preloader">
+  <div id="loader"></div>
+</div>
+
+    <div id="everything" class="hidden">
+
+    <!-- Quiz Instructions Modal-->
+<div class="modal fade blur" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Quiz Instructions</h5>
+ 
+      </div>
+      <div class="modal-body">
+        <ul>
+            <li>Each quiz allows for an unlimited number of attempts, however your score will be recorded for each additional attempt.</li>
+<br>
+<li>Each question in the quiz is of multiple-choice format. Read each question carefully, and choose the answer choice that best answers the question.</li>
+<br>
+<li>After responding to a question, click on the "Next" button at the bottom to go to the next question. After responding to the final question, click on “Submit” to exit the quiz and get your score.</li>
+<br>
+<li>The total score for the quiz is based on your responses to all questions. If you respond incorrectly to a question, your quiz score will reflect it appropriately.</li>
+
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="startBtn" class="btn btn-primary begin" data-bs-dismiss="modal">Begin</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Quiz Container-->
+
+    <div id="quiz-container" class="container">
+
+      <div id="quiz-white" class="hidden">
+      
+          <section id="quiz-card" class="hidden">
+                   <nav class="navbar navbar-expand-lg navbar-dark ">
+                <a style="color: black;" class="navbar-brand" href="#">Qz+</a>                
+                
+            </nav>
+
+      <div id="game" class="justify-center flex-column">
+       
+                
+                   <!-- Quiz Menu-->
+  <div  class="modal fade blur" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Paused</h1>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to exit this quiz?
+        </div>
+        <div class="modal-footer">
+          <button onclick="cancel()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Resume</button>
+          <button type="button" class="btn btn-danger" onclick="confirm()">Exit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <section id="progress">      
+          <div class="progress mx-auto data-val-progress" data-value='100'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h2 score-percent font-weight-bold result"><sup class="small">%</sup></div>
+          </div>
+        </div>
+        
+
+                <div class="row text-center mt-4">
+          <div class="col-6 border-right">
+            <div class="h4 font-weight-bold mb-0 correct-count"></div><span class="small text-gray">Correct</span>
+          </div>
+          <div class="col-6">
+            <div class="h4 font-weight-bold mb-0 wrong-count"></div><span class="small text-gray">Incorrect</span>
+          </div>
+ <h2 class="font-weight-bold text-center mb-4 message"></h2>
+
+ <h5 id="your-score"></h5>
+ <div id="buttons">
+ <button id="retry" style="display: block;" onclick="restart()" class="btn btn-outline-light"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+  <button id="return" onclick="confirm()" class="btn btn-outline-light">Finish</button>
+  </div>
+        </div>
+</section>
+        <h2 id="question"></h2>
+        <div class="choice-container" id="c1">
+          <label class="answer-choice" for="ac1" id="choice1">Answer</label>
+        </div>
+
+        <div class="choice-container" id="c2">
+          <label class="answer-choice" for="ac2" id="choice2">Answer</label>
+        </div>
+
+        <div class="choice-container" id="c3">
+          <label class="answer-choice" for="ac3" id="choice3">Answer</label>
+        </div>
+
+        <div class="choice-container" id="c4">
+          <label class="answer-choice" for="ac4" id="choice4">Answer</label>
+        </div>
+        <div class="c-alert alert alert-success" role="alert">
+  Correct!
+</div>
+
+        <div class="w-alert alert alert-danger" role="alert">
+  Incorrect!
+</div>
+
+
+<button class="btn btn-outline-light" style="color: rgba(91, 91, 91, 0.72);" id="next">Next</button>
+
+         <p style="font-size: 15px; text-align: center;"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="question_number"></p>
+      </div>
+    </div>
+     </section>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="JS/mythology.js"></script>
+
+</div>
+  </body>
+</html>
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+       $('#exampleModalCenter').modal('show');
+});
+    </script>

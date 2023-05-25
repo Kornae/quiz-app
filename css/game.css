@@ -1,0 +1,281 @@
+.navbar {
+    padding-bottom: 4.5rem;
+}
+
+.navbar-brand {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+}
+
+:root {
+    background-color: #ecf5ff;
+    font-size: 70%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Instrument Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #393939;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-size: 5.4rem;
+    color: #2d2d2de9;
+    margin-bottom: 5rem;
+}
+
+h1>span {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 3.8vh;
+    margin-bottom: 4rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+/* UTILITIES */
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.container>* {
+    width: 100%;
+}
+
+.flex-column {
+    display: flex;
+}
+
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 2.4vh;
+    border: 0.1rem solid #96969678;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    transform: translate(-0.1rem);
+    transition: transform 150ms;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(201, 201, 201, 0.5);
+}
+
+.choice-text {
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.answer-choice {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.input-radio-btn {
+    width: 20px;
+    margin-left: 5px;
+}
+
+#question {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.blur {
+    backdrop-filter: blur(10px);
+}
+
+.space {
+    padding: 4rem 7rem !important;
+}
+
+/* CUSTOM UTIL CLASSES */
+
+.progress {
+    width: 275px;
+    height: 275px;
+    background: none;
+    position: relative;
+}
+
+.progress::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress>span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.progress .progress-left {
+    left: 0;
+}
+
+.progress .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 6px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+
+.progress .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 1000px;
+    border-bottom-right-radius: 1000px;
+    border-left: 0;
+    transform-origin: center left;
+}
+
+.progress .progress-right {
+    right: 0;
+}
+
+.progress .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 1000px;
+    border-bottom-left-radius: 1000px;
+    border-right: 0;
+    transform-origin: center right;
+}
+
+.progress .progress-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+body {
+    background-color: rgb(249, 249, 249);
+}
+
+.rounded-lg {
+    border-radius: 1rem;
+}
+
+.text-gray {
+    color: #aaa;
+}
+
+div.h4 {
+    line-height: 1rem;
+}
+
+td {
+    text-align: center;
+}
+
+.question-format {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.disable-answers {
+    pointer-events: none;
+}
+
+.correct-count {
+   font-size: 1.5rem;
+}
+
+.wrong-count {
+ font-size: 1.8rem;
+}
+
+.score-percent {
+    font-size: 65px;
+}
+
+#quiz-white {
+    width: 100%;
+    padding: 45px;
+    margin: 0px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+#retry,
+#return {
+    margin: 5px;
+    width: 100px;
+    color: #000;
+    background-color: #f7f7f7;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.not-chosen {
+    color: rgb(166, 166, 166);
+}
+
+#question_number {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal {
+    font-size: 15px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.small{
+    font-size: 1.2rem;
+}
+
+#your-score {
+font-size: 1.5rem;
+}
