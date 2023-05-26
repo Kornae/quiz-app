@@ -1,4 +1,16 @@
 /*  */
+@media screen and (max-width: 1024px) {
+
+    #quiz-white {
+        display: contents;
+    }
+
+   #everything {
+    background-color: #f7f7f7;
+   }
+
+
+}
 
 .navbar {
     padding-bottom: 4.5rem;

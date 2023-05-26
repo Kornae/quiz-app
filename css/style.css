@@ -1,3 +1,22 @@
+
+@media screen and (max-width: 600px) {
+    /* CSS rules to apply when the screen width is 600px or less */
+    #main-background {
+        color: white;
+        background-repeat: no-repeat;
+        background: url('../svg/mobileblue.svg');
+        background-color: rgb(0, 0, 0);
+        background-size: cover;
+        opacity: 0.92;
+    }
+
+    #title {
+        font-size: 35px;
+    }
+
+
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     color: rgb(33, 33, 33);
@@ -56,13 +75,15 @@ a {
 }
 
 /* Main Backgrounds */
+@media screen and (min-width: 600px) {
 #main-background {
     color: white;
     background-repeat: no-repeat;
-    /* background: url('svg/gold.svg'); */
+    background: url('../svg/yw.svg');
     background-color: rgb(0, 0, 0);
     background-size: cover;
     opacity: 0.92;
+}
 }
 
 #titleh1 {
