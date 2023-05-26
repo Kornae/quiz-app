@@ -1,3 +1,5 @@
+/*  */
+
 .navbar {
     padding-bottom: 4.5rem;
 }
@@ -9,7 +11,7 @@
 }
 
 :root {
-    background-color: #ecf5ff;
+    background-color: rgb(249, 249, 249);
     font-size: 70%;
 }
 
