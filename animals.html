@@ -102,21 +102,21 @@
     <div class="modal-dialog modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Paused</h1>
+          <h1 class="modal-title quit-modal " id="exampleModalLabel"><i class="fa-solid fa-circle-exclamation"></i> Attention</h1>
         </div>
         <div class="modal-body">
           Are you sure you want to exit this quiz?
         </div>
         <div class="modal-footer">
-          <button onclick="cancel()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Resume</button>
-          <button type="button" class="btn btn-danger" onclick="confirm()">Exit</button>
+          <button onclick="confirm()" type="button" class="btn btn-primary">Yes</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">No</button>
         </div>
       </div>
     </div>
   </div>
         <section id="progress">  
               <div id="root">
-         <span> <h1 id="your-quiz-score">80</h1></span>
+         <span> <h1 id="your-quiz-score"></h1></span>
 </div>
                 <div class="row text-center mt-4">
 

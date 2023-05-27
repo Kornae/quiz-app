@@ -321,9 +321,9 @@ body {
 
 }
 
-h1 {
+#your-quiz-score {
 
-    color: black;
+    color: #2e2e2e;
     font-size: 6rem;
     position: absolute;
     top: 60%;
