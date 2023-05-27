@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Qz+</title>
     <!-- BootStrap/Javascript Links -->
     <link
@@ -64,13 +64,13 @@
       </div>
       <div class="modal-body">
         <ul>
-            <li>Each quiz allows for an unlimited number of attempts, however your score will be recorded for each additional attempt.</li>
+<li>Read each question carefully before selecting your answer. Only one answer choice is correct for each question.</li>
 <br>
-<li>Each question in the quiz is of multiple-choice format. Read each question carefully, and choose the answer choice that best answers the question.</li>
+<li>Select the best answer choice from the options provided. Once you have selected an answer, you cannot change it.</li>
 <br>
-<li>After responding to a question, click on the "Next" button at the bottom to go to the next question. After responding to the final question, click on “Submit” to exit the quiz and get your score.</li>
+<li>After submitting the quiz, you will receive your score and any relevant feedback.</li>
 <br>
-<li>The total score for the quiz is based on your responses to all questions. If you respond incorrectly to a question, your quiz score will reflect it appropriately.</li>
+<li>To exit the quiz, click the question number located at the bottom of the page (e.g., "1/10").</li>
 
         </ul>
       </div>
@@ -114,35 +114,31 @@
       </div>
     </div>
   </div>
-        <section id="progress">      
-          <div class="progress mx-auto data-val-progress" data-value='100'>
-          <span class="progress-left">
-                        <span class="progress-bar border-primary"></span>
-          </span>
-          <span class="progress-right">
-                        <span class="progress-bar border-primary"></span>
-          </span>
-          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-            <div class="h2 score-percent font-weight-bold result"><sup class="small">%</sup></div>
-          </div>
-        </div>
-        
-
+        <section id="progress">  
+              <div id="root">
+         <span> <h1 id="your-quiz-score">80</h1></span>
+</div>
                 <div class="row text-center mt-4">
+
+                  
+                   <h2 class="font-weight-bold text-center mb-4 message"></h2>
           <div class="col-6 border-right">
             <div class="h4 font-weight-bold mb-0 correct-count"></div><span class="small text-gray">Correct</span>
           </div>
           <div class="col-6">
             <div class="h4 font-weight-bold mb-0 wrong-count"></div><span class="small text-gray">Incorrect</span>
           </div>
- <h2 class="font-weight-bold text-center mb-4 message"></h2>
 
- <h5 id="your-score"></h5>
+
+
+   <h5 id="timer">Elapsed Time: 00:00:00</h5>
+    <h5 id="your-score"></h5>
  <div id="buttons">
- <button id="retry" style="display: block;" onclick="restart()" class="btn btn-outline-light"><i class="fa-solid fa-arrow-rotate-right"></i></button>
-  <button id="return" onclick="confirm()" class="btn btn-outline-light">Finish</button>
+    <button onclick="restart()" class="btn btn-outline-dark" id="retry"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+  <button onclick="confirm()" class="btn btn-outline-dark" id="return"><i class="fa-solid fa-house"></i></button>
   </div>
         </div>
+            
 </section>
         <h2 id="question"></h2>
         <div class="choice-container" id="c1">
@@ -170,6 +166,7 @@
 
 
 <button class="btn btn-outline-light" style="color: rgba(83, 83, 83, 0.909);" id="next">Next</button>
+<button class="btn btn-outline-light hidden" style="color: rgba(83, 83, 83, 0.909);" id="submit">Submit</button>
 
          <p style="font-size: 15px; text-align: center;"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="question_number"></p>
       </div>

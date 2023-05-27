@@ -1,5 +1,5 @@
-
 @media screen and (max-width: 600px) {
+
     /* CSS rules to apply when the screen width is 600px or less */
     #main-background {
         color: white;
@@ -11,11 +11,71 @@
     }
 
     #title {
+
+        /* font-family: 'Noto Sans KR', sans-serif; */
         font-size: 35px;
+        padding: 2.5rem 3rem 0rem;
+    }
+
+    #subtitle {
+        font-size: .8rem;
+        text-align: center;
+        padding: 0rem 3rem 1rem;
+    }
+
+    .navbar {
+        padding: 0 0 0rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
+
+    .explore-section {
+        padding-bottom: 2rem;
+    }
+
+}
+
+@media screen and (min-width: 600px) {
+    #main-background {
+        color: white;
+        background-repeat: no-repeat;
+        background: url('../svg/yw.svg');
+        background-color: rgb(0, 0, 0);
+        background-size: cover;
+        opacity: 0.92;
+    }
+
+    #title {
+        /* font-family: 'SF Pro Display', sans-serif; */
+        padding: 3.5rem 3rem 0rem;
+        font-weight: 300;
+    }
+
+    /* Nav Bar Icon */
+
+
+    .navbar-brand {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.8rem;
+        font-weight: 300;
+    }
+
+    .navbar {
+        padding: 0 0 0rem;
     }
 
 
+    #subtitle {
+        font-size: 1.05rem;
+        text-align: center;
+        padding: 0rem 3rem 2rem;
+    }
+
 }
+
+
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -74,34 +134,6 @@ a {
     padding-left: 10px;
 }
 
-/* Main Backgrounds */
-@media screen and (min-width: 600px) {
-#main-background {
-    color: white;
-    background-repeat: no-repeat;
-    background: url('../svg/yw.svg');
-    background-color: rgb(0, 0, 0);
-    background-size: cover;
-    opacity: 0.92;
-}
-}
-
-#titleh1 {
-    font-weight: 200;
-    font-size: 3rem;
-    text-align: center;
-}
-
-/* Nav Bar Icon */
-.navbar {
-    padding: 0 0 4.5rem;
-}
-
-.navbar-brand {
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-}
 
 /* Quiz Card */
 .quiz-title {
@@ -154,20 +186,6 @@ a {
     text-align: center;
 }
 
-.quiz-info-section:first-of-type {
-    text-align: left;
-}
-
-.quiz-info-section:last-of-type {
-    text-align: right;
-}
-
-.quiz-info-section label {
-    display: block;
-    color: rgba(0, 0, 0, 0.5);
-    margin-bottom: 0.5em;
-    font-size: 9px;
-}
 
 .quiz-info-section span {
     font-weight: 500;
@@ -186,16 +204,6 @@ a {
     display: flex;
 }
 
-.download-button {
-    display: none;
-}
-
 .hidden {
     display: none;
 }
-
-#subtitle {
-    font-size: 1.05rem;
-    text-align: center;
-}
-

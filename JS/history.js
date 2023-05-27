@@ -2,7 +2,7 @@ let score = 0;
 let i = 0;
 let questions = '';
 
-const apiUrl = 'https://opentdb.com/api.php?amount=10&category=23&type=multiple&encode=base64';
+const apiUrl = 'https://opentdb.com/api.php?amount=10&category=23&type=multiple&encode=base64'
 
 function getQuestions() {
     fetch(apiUrl)
@@ -31,6 +31,9 @@ function getQuestions() {
             $('#progress').addClass('hidden');
             showPage();
             $('#preloader').hide()
+
+
+
 
             $('#next, #startBtn').click(() => {
                 $('.choice-container').removeClass('disable-answers');
@@ -114,6 +117,7 @@ function getQuestions() {
                 if (i === 10) {
                     $('#next').text('Submit');
                 } else if (i === 11 && score <= 10) {
+                    $('#submit').click();
                     $('#question_number').hide();
                     $('.choice-container, #question_number').addClass('hidden');
                     $('#question').text(`Score: ${score}/${data.results.length - 1}`);
@@ -121,6 +125,102 @@ function getQuestions() {
                     $('#question').addClass('hidden');
                     $('#progress').removeClass('hidden');
                     let percent = score * 10;
+                    $('#your-quiz-score').text(percent)
+
+
+
+
+
+                    function createProgressBar(value, max, width = 180, className = "") {
+                        const SVG_DASHARRAY_MAX = 126;
+                        const dashOffset = Math.round((value * SVG_DASHARRAY_MAX) / max);
+                        const containerWidth = 60;
+                        const maxValueFontSize = 10;
+
+                        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.setAttribute("viewBox", `0 0 120 ${containerWidth}`);
+                        svg.setAttribute("width", width.toString());
+                        svg.setAttribute("class", className);
+
+                        const style = document.createElement("style");
+                        style.textContent = `@keyframes progress {
+    from { stroke-dashoffset: ${SVG_DASHARRAY_MAX}; }
+    to { stroke-dashoffset: ${SVG_DASHARRAY_MAX - dashOffset}; }
+  }`;
+
+                        const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                        path1.setAttribute("d", "M20,50 A10,10 0 1,1 100,50");
+                        path1.setAttribute("fill", "none");
+                        path1.setAttribute("stroke-linecap", "round");
+                        path1.setAttribute("stroke-width", "6");
+                        path1.setAttribute("stroke", "#EFEFEF ");
+
+                        const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                        path2.setAttribute("d", "M20,50 A10,10 0 1,1 100,50");
+                        path2.setAttribute("fill", "none");
+                        path2.setAttribute("stroke-linecap", "round");
+                        path2.setAttribute("stroke-width", "6");
+                        path2.setAttribute("stroke-dasharray", SVG_DASHARRAY_MAX);
+                        path2.setAttribute("stroke-dashoffset", SVG_DASHARRAY_MAX);
+                        path2.style.animation = "progress 1s ease-out forwards";
+
+                        const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+                        gradient.setAttribute("id", "progressGradient");
+                        gradient.setAttribute("x1", "0%");
+                        gradient.setAttribute("y1", "0%");
+                        gradient.setAttribute("x2", "100%");
+                        gradient.setAttribute("y2", "0%");
+
+                        const stopRed = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                        stopRed.setAttribute("offset", "0%");
+                        stopRed.setAttribute("stop-color", "#D61F1F");
+
+                        const stopYellow = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                        stopYellow.setAttribute("offset", "80%");
+                        stopYellow.setAttribute("stop-color", "#FFD301");
+
+                        const stopGreen = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                        stopGreen.setAttribute("offset", "100%");
+                        stopGreen.setAttribute("stop-color", "#7BB662");
+
+                        gradient.appendChild(stopRed);
+                        gradient.appendChild(stopYellow);
+                        gradient.appendChild(stopGreen);
+
+                        path2.setAttribute("stroke", "url(#progressGradient)");
+
+                        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        text.setAttribute("x", "107");
+                        text.setAttribute("y", "52");
+                        text.setAttribute("fill", "#646464 ");
+                        text.style.fontSize = `${(maxValueFontSize * containerWidth) / 100}px`;
+                        text.style.fontFamily = "'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+                        text.style.fontWeight = "600";
+                        text.style.opacity = "60%";
+                        text.style.letterSpacing = "-0.02em";
+                        text.textContent = max.toString();
+
+                        svg.appendChild(style);
+                        svg.appendChild(path1);
+                        svg.appendChild(gradient);
+                        svg.appendChild(path2);
+                        svg.appendChild(text);
+
+                        return svg;
+                    }
+
+                    const root = document.querySelector("#root");
+                    const example = createProgressBar(percent, 100, "#000", 400);
+                    root.appendChild(example);
+
+
+
+
+
+
+
+
+
 
                     if (percent >= 90 && percent <= 100) {
                         $('.message').text('Exceptional');
@@ -143,27 +243,7 @@ function getQuestions() {
                     $('.total-count').text(total);
                     $('#your-score').text(`Your Score: ${score}/${total}`);
 
-                    $(function () {
-                        $(".progress").each(function () {
-                            var value = $(this).attr('data-value');
-                            value = percent;
-                            var left = $(this).find('.progress-left .progress-bar');
-                            var right = $(this).find('.progress-right .progress-bar');
-
-                            if (value > 0) {
-                                if (value <= 50) {
-                                    right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)');
-                                } else {
-                                    right.css('transform', 'rotate(180deg)');
-                                    left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)');
-                                }
-                            }
-                        });
-
-                        function percentageToDegrees(percentage) {
-                            return (percentage / 100) * 360;
-                        }
-                    });
+                    
                 }
             });
         })
@@ -188,3 +268,59 @@ function showPage() {
     $('#everything').removeClass('hidden');
 }
 
+
+
+
+
+$(document).ready(function () {
+
+    const startButton = $("#startBtn");
+    const stopButton = $("#submit");
+    const timerElement = $("#timer");
+
+    let startTime;
+    let timerInterval;
+
+    startButton.click(startTimer);
+    stopButton.click(stopTimer);
+
+    function startTimer() {
+
+        startTime = Date.now();
+
+
+        timerInterval = setInterval(updateTimer, 1000);
+
+
+        startButton.prop("disabled", true);
+    }
+
+    function stopTimer() {
+
+        clearInterval(timerInterval);
+
+
+        startButton.prop("disabled", false);
+    }
+
+    function updateTimer() {
+
+        const elapsedTime = Date.now() - startTime;
+
+
+        const hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+        const minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+
+        const formattedTime = `Elapsed Time: ${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+
+
+        timerElement.text(formattedTime);
+    }
+
+    function padZero(value) {
+
+        return value < 10 ? `0${value}` : value;
+    }
+});

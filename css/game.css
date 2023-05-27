@@ -5,10 +5,18 @@
         display: contents;
     }
 
-   #everything {
-    background-color: #f7f7f7;
-   }
+    #everything {
+        background-color: #f7f7f7;
+    }
 
+    .navbar {
+        display: none;
+    }
+
+    #timer {
+        padding: 15px;
+        font-size: 15px;
+    }
 
 }
 
@@ -29,7 +37,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     margin: 0;
     padding: 0;
     color: #393939;
@@ -137,7 +145,7 @@ h3 {
     width: 275px;
     height: 275px;
     background: none;
-    position: relative;
+
 }
 
 .progress::after {
@@ -231,11 +239,11 @@ td {
 }
 
 .correct-count {
-   font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .wrong-count {
- font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .score-percent {
@@ -260,11 +268,10 @@ td {
 
 #retry,
 #return {
+    font-size: 1.2rem;
     margin: 5px;
     width: 100px;
     color: #000;
-    background-color: #f7f7f7;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .not-chosen {
@@ -286,10 +293,41 @@ td {
     font-weight: bold;
 }
 
-.small{
+.small {
     font-size: 1.2rem;
 }
 
 #your-score {
-font-size: 1.5rem;
+    font-size: 1.5rem;
+}
+
+
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+
+}
+
+
+#root {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    height: 200px;
+
+}
+
+h1 {
+
+    color: black;
+    font-size: 6rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }

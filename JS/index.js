@@ -22,8 +22,4 @@ searchInput.addEventListener('keyup', () => {
   typingTimer = setTimeout(liveSearch, typeInterval);
 });
 
-// $(document).ready(function () {
-//   $("#main-background").css("background", "url('svg/yw.svg')");
-//   $("#main-background").css("backgroundColor", "black").css("backgroundSize", "cover")
-// })
 
