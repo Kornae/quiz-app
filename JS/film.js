@@ -2,7 +2,7 @@ let score = 0;
 let i = 0;
 let questions = '';
 
-const apiUrl = 'https://opentdb.com/api.php?amount=10&category=11&type=multiple&encode=base64';
+const apiUrl = 'https://opentdb.com/api.php?amount=10&category=11&type=multiple&encode=url3986';
 
 function getQuestions() {
     fetch(apiUrl)
@@ -15,15 +15,15 @@ function getQuestions() {
         .then(data => {
             questions = data.results;
             let blank = {
-                category: window.btoa("Question 11: Blank"),
-                type: window.btoa(""),
-                difficulty: window.btoa("Easy"),
-                question: window.btoa(""),
-                correct_answer: window.btoa("Correct"),
+                category: ("Question 11: Blank"),
+                type: (""),
+                difficulty: ("Easy"),
+                question: (""),
+                correct_answer: ("Correct"),
                 incorrect_answers: [
-                    window.btoa("Incorrect"),
-                    window.btoa("Incorrect"),
-                    window.btoa("Incorrect")
+                    ("Incorrect"),
+                    ("Incorrect"),
+                    ("Incorrect")
                 ]
             };
             questions.push(blank);
@@ -37,13 +37,13 @@ function getQuestions() {
 
             $('#next, #startBtn').click(() => {
                 $('.choice-container').removeClass('disable-answers');
-                $('#question').text(window.atob(data.results[i].question));
+                $('#question').text(decodeURIComponent(data.results[i].question));
 
                 let array2 = [...data.results[i].incorrect_answers, data.results[i].correct_answer].sort(() => Math.random() - 0.5);
-                $('#choice1, #c1, #ac1').text(window.atob(array2[0]));
-                $('#choice2, #c2, #ac2').text(window.atob(array2[1]));
-                $('#choice3, #c3, #ac3').text(window.atob(array2[2]));
-                $('#choice4, #c4, #ac4').text(window.atob(array2[3]));
+                $('#choice1, #c1, #ac1').text(decodeURIComponent(array2[0]));
+                $('#choice2, #c2, #ac2').text(decodeURIComponent(array2[1]));
+                $('#choice3, #c3, #ac3').text(decodeURIComponent(array2[2]));
+                $('#choice4, #c4, #ac4').text(decodeURIComponent(array2[3]));
                 i++;
                 $('.c-alert').addClass('hidden');
                 $('.w-alert').addClass('hidden');
@@ -104,11 +104,11 @@ function getQuestions() {
                 $('#question_number').text(`${i}/${data.results.length - 1}`);
 
                 if (i > 0) {
-                    if (yourAnswer === window.atob(data.results[i - 1].correct_answer)) {
+                    if (yourAnswer === decodeURIComponent(data.results[i - 1].correct_answer)) {
                         $('.c-alert').removeClass('hidden');
                         $('.choice-container').addClass('disable-answers');
                         score++;
-                    } else if (yourAnswer !== window.atob(data.results[i - 1].correct_answer) && yourAnswer !== 'Begin') {
+                    } else if (yourAnswer !== decodeURIComponent(data.results[i - 1].correct_answer) && yourAnswer !== 'Begin') {
                         $('.w-alert').removeClass('hidden');
                         $('.choice-container').addClass('disable-answers');
                     }
